@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="funcionario" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8281cb73-5644-4245-b35d-ef7288e86b63">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Titulo" fontName="Corbel" fontSize="30" isItalic="false" isUnderline="false"/>
+	<style name="CorLinRel">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Transparent" forecolor="#FFFFFF" backcolor="#CCCCCC"/>
+		</conditionalStyle>
+	</style>
+	<style name="Column Header" isBlankWhenNull="true" fontName="Corbel" fontSize="14" isBold="true" isItalic="false" isUnderline="false"/>
+	<style name="Details 1" fontName="Arial"/>
+	<subDataset name="dataset1" uuid="74ca11e3-83ec-480b-ae93-74e816ed11c8"/>
+	<queryString>
+		<![CDATA[SELECT
+     funcionarios.`Cod_func` AS funcionarios_Cod_func,
+     funcionarios.`CPF` AS funcionarios_CPF,
+     funcionarios.`nomefunc` AS funcionarios_nomefunc,
+     funcionarios.`telefone` AS funcionarios_telefone,
+     funcionarios.`cargo` AS funcionarios_cargo,
+     funcionarios.`RG` AS funcionarios_RG,
+     funcionarios.`nascimento` AS funcionarios_nascimento,
+     funcionarios.`cod_end` AS funcionarios_cod_end,
+     funcionarios.`usuario` AS funcionarios_usuario,
+     funcionarios.`senha` AS funcionarios_senha
+FROM
+     `funcionarios` funcionarios]]>
+	</queryString>
+	<field name="funcionarios_Cod_func" class="java.lang.Integer"/>
+	<field name="funcionarios_CPF" class="java.lang.String"/>
+	<field name="funcionarios_nomefunc" class="java.lang.String"/>
+	<field name="funcionarios_telefone" class="java.lang.String"/>
+	<field name="funcionarios_cargo" class="java.lang.String"/>
+	<field name="funcionarios_RG" class="java.lang.String"/>
+	<field name="funcionarios_nascimento" class="java.sql.Date"/>
+	<field name="funcionarios_cod_end" class="java.lang.Integer"/>
+	<field name="funcionarios_usuario" class="java.lang.String"/>
+	<field name="funcionarios_senha" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="152" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="151" width="555" height="1" uuid="dab55490-e227-4aa6-9274-0ea030dc0eda"/>
+			</line>
+			<staticText>
+				<reportElement style="Titulo" mode="Opaque" x="0" y="56" width="100" height="37" forecolor="#003366" uuid="0989518e-7a65-4439-8ff0-bdc08aa8b80f"/>
+				<textElement>
+					<font isBold="true" isItalic="false" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[SAF]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Titulo" x="0" y="93" width="317" height="37" forecolor="#003366" uuid="5de51090-9487-437f-befc-fe7f02b4f494"/>
+				<text><![CDATA[Relatorio do Estoque]]></text>
+			</staticText>
+			<image>
+				<reportElement x="394" y="1" width="161" height="129" uuid="33e5cc47-51a4-496f-b644-bfe5565cec32"/>
+				<imageExpression><![CDATA["G:\\SAF Finaaaaaal\\src\\imagens\\logoSafNormal.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="28" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="6" width="555" height="20" forecolor="#99FF00" backcolor="#99FF00" uuid="635a3d69-1929-4d67-bf3f-2ac8b6cafe2c"/>
+			</rectangle>
+			<staticText>
+				<reportElement style="Column Header" x="0" y="7" width="100" height="20" uuid="de879dec-86a9-42e7-ab1a-b0fe233ce4e7"/>
+				<text><![CDATA[Cod.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column Header" x="100" y="7" width="100" height="20" uuid="0aeee4c7-949d-4a33-87e1-4f9a8720b849"/>
+				<text><![CDATA[Nome]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column Header" x="200" y="7" width="100" height="20" uuid="904e744e-7152-48d4-8cc3-30623f4b8e5f"/>
+				<text><![CDATA[Cargo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column Header" x="300" y="7" width="100" height="20" uuid="46517514-267e-49fb-8fc0-a34ec74db2e0"/>
+				<text><![CDATA[Telefone]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column Header" x="400" y="7" width="100" height="20" uuid="e3cf41f3-ab55-48cc-8796-21ca58784da9"/>
+				<text><![CDATA[CPF]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<frame>
+				<reportElement style="CorLinRel" mode="Opaque" x="0" y="0" width="555" height="20" forecolor="#000000" uuid="7a575452-1e27-481e-973a-f0154a74a6e5"/>
+			</frame>
+			<textField>
+				<reportElement style="Details 1" x="0" y="0" width="100" height="20" uuid="65d083a4-97fb-4efd-8223-234a0ec5ad30"/>
+				<textFieldExpression><![CDATA[$F{funcionarios_Cod_func}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Details 1" x="100" y="0" width="100" height="20" uuid="77f8f0b1-b049-4195-a936-031987a45d91"/>
+				<textFieldExpression><![CDATA[$F{funcionarios_nomefunc}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Details 1" x="200" y="0" width="100" height="20" uuid="eb906eeb-a46e-4582-96e1-4bfaf574425f"/>
+				<textFieldExpression><![CDATA[$F{funcionarios_cargo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Details 1" x="300" y="0" width="100" height="20" uuid="b2683373-0546-49c4-baa9-150917096500"/>
+				<textFieldExpression><![CDATA[$F{funcionarios_telefone}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Details 1" x="400" y="0" width="100" height="20" uuid="b1d3630a-1226-4ed6-9677-1eb5847a96e3"/>
+				<textFieldExpression><![CDATA[$F{funcionarios_CPF}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement x="528" y="34" width="27" height="20" uuid="fef8fd2f-1fe6-456e-aef1-91e2e6322040"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement x="0" y="34" width="149" height="20" uuid="2284c06f-ad49-4c25-86c4-9ea747af0c3d"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="cliente" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="77a2ae68-63b6-4c40-ae20-0c442cbb5a36">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Titulo" fontName="Corbel" fontSize="30" isItalic="false" isUnderline="false"/>
+	<style name="CorLinRel">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Transparent" forecolor="#FFFFFF" backcolor="#CCCCCC"/>
+		</conditionalStyle>
+	</style>
+	<style name="Column Header" isBlankWhenNull="true" fontName="Corbel" fontSize="14" isBold="true" isItalic="false" isUnderline="false"/>
+	<style name="Details 1" fontName="Arial"/>
+	<queryString>
+		<![CDATA[SELECT nome_cliente, cpf_cliente, email_cliente, tel_cliente FROM clientes]]>
+	</queryString>
+	<field name="nome_cliente" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="cpf_cliente" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="email_cliente" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tel_cliente" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="134" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="129" width="555" height="1" uuid="37ef2170-7823-4d4f-8ea6-efdaa9ce71a4"/>
+			</line>
+			<staticText>
+				<reportElement style="Titulo" mode="Opaque" x="0" y="39" width="100" height="37" forecolor="#003366" uuid="72efafb5-2034-44a2-9016-899cf85e0fd8"/>
+				<textElement>
+					<font isBold="true" isItalic="false" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[SAF]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Titulo" x="0" y="76" width="317" height="37" forecolor="#003366" uuid="cd6ddbda-490f-4112-a3e4-cd3ea46a7326"/>
+				<text><![CDATA[Relatorio do Estoque]]></text>
+			</staticText>
+			<image>
+				<reportElement x="394" y="0" width="161" height="129" uuid="392da5a7-fb64-4b9d-990e-ca30fd958248"/>
+				<imageExpression><![CDATA["G:\\SAF Finaaaaaal\\src\\imagens\\logoSafNormal.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="28" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="6" width="555" height="20" forecolor="#99FF00" backcolor="#99FF00" uuid="b8e46563-21e2-4706-aa83-62de29aa320a"/>
+			</rectangle>
+			<staticText>
+				<reportElement style="Column Header" x="0" y="7" width="100" height="20" uuid="977af756-2d84-4caf-81bb-f5822ff01bd4"/>
+				<text><![CDATA[Nome]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column Header" x="139" y="7" width="100" height="20" uuid="8d2b5d4e-2c68-4999-9239-59567aef364f"/>
+				<text><![CDATA[E-mail]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column Header" x="281" y="7" width="100" height="20" uuid="97716536-2103-4656-ab0d-8e88badcf88a"/>
+				<text><![CDATA[Telefone]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column Header" x="433" y="7" width="100" height="20" uuid="6dc9fe75-b1b9-4feb-9f40-549a1ae49a42"/>
+				<text><![CDATA[CPF]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="22" splitType="Stretch">
+			<frame>
+				<reportElement style="CorLinRel" mode="Opaque" x="0" y="0" width="555" height="20" uuid="aec98cf1-5e70-4795-90ab-a21010b8cee9"/>
+				<textField>
+					<reportElement x="433" y="0" width="100" height="20" uuid="305c316c-0602-4ebb-bbb7-23cdfdd768b1"/>
+					<textFieldExpression><![CDATA[$F{cpf_cliente}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="281" y="0" width="100" height="20" uuid="cbdab595-0e35-44b4-a89d-cc31fc7e67c0"/>
+					<textFieldExpression><![CDATA[$F{tel_cliente}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<textField>
+				<reportElement style="Details 1" x="0" y="0" width="100" height="20" uuid="30adc555-3a0a-4a1a-9ed6-5b5183ae7e63"/>
+				<textFieldExpression><![CDATA[$F{nome_cliente}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Details 1" x="139" y="0" width="100" height="20" uuid="58a72ceb-9898-4dd7-a4a4-d1f5638974ad"/>
+				<textFieldExpression><![CDATA[$F{email_cliente}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField>
+				<reportElement x="533" y="34" width="22" height="20" uuid="6cc7e472-2bad-4e2a-b363-8d7d9d4ee467"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="MMMMM dd, yyyy">
+				<reportElement x="0" y="34" width="149" height="20" uuid="be703f09-0386-4e66-aea5-f52872e17601"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
